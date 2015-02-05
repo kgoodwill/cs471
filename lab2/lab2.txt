@@ -2,6 +2,8 @@ Kyle Goodwill
 Programming Languages
 Lab 2
 
+Part 1
+
 2)
   a. command := expr '\n'
      expr := term '+' expr | term
@@ -62,4 +64,20 @@ Lab 2
 
   c. They are all right associative
 
-4) 
+4) In separate .c file
+
+Part 2
+
+2) 
+  a. 
+   command := expr '\n'
+   expr := term | expr '+' term
+   expr := term { '+' term }
+   term := factor | term '*' factor
+   term := factor { '*' factor }
+   factor := '(' expr ')' | number
+   number := digit | number digit
+   number := digit { digit }
+   digit := '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+
+ b. 
