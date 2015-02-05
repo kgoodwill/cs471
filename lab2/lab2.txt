@@ -1,0 +1,65 @@
+Kyle Goodwill
+Programming Languages
+Lab 2
+
+2)
+  a. command := expr '\n'
+     expr := term '+' expr | term
+     term := factor | factor '*' term
+     factor := '(' expr ')' | number
+     number := digit | number digit
+     digit := '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' 
+
+  b. The '+' has the higher precedence because it is higher up in the parse tree
+
+  c. 3+(5*7)
+     (3*5)*7
+
+  d.
+     expr
+     term '+' expr
+     factor '+' expr
+     number '+' expr
+     digit '+' expr
+     '3' '+' expr
+     '3' '+' term
+     '3' '+' factor '*' term
+     '3' '+' number '*' term
+     '3' '+' digit '*' term
+     '3' '+' '5' '*' term
+     '3' '+' '5' '*' factor
+     '3' '+' '5' '*' number
+     '3' '+' '5' '*' digit
+     '3' '+' '5' '*' '7'
+
+     expr
+     term
+     factor '*' term
+     number '*' term
+     digit '*' term
+     '3' '*' term
+     '3' '*' factor '*' term
+     '3' '*' number '*' term
+     '3' '*' digit '*' term
+     '3' '*' '5' '*' term
+     '3' '*' '5' '*' factor
+     '3' '*' '5' '*' number
+     '3' '*' '5' '*' digit
+     '3' '*' '5' '*' '7'
+
+3)
+  a. command := expr '\n'
+     expr := term '+' expr | term
+     term := avgr | avgr '*' term
+     avgr :=  factor | factor '@' avgr
+     factor := '(' expr ')' | number
+     number := digit | number digit
+     digit := '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' 
+
+  b. 10 + (20 + 30)
+     (10 @ 20) * (2 @ 6)
+     (2 @ 10) + (51 @ 5)
+
+  c. They are all right associative
+
+4) 
