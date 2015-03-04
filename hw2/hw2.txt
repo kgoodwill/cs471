@@ -1,0 +1,54 @@
+Kyle Goodwill
+Programming Languages
+HW2
+
+1)Pragmas are constructs that provide hints or directives to the compiler to change the compilation process. They are processed by the scanner because they can appear anywhere in the source code. The tradeoffs for allowing the use of pragmas are allowing run-time checks and performance profiling, but their use greatly complicates the parser.
+
+2)
+  stmt := if var then var else | if var then stmt
+  var :=  ter | begin stmt end
+  ter := C1 | C2 | C3
+
+3)
+  a. (w+(x@(y@z)))
+     (+w(@x(@yz)))
+     +w@x@yz
+
+  b. (w+((x@y)+z))
+     (+w(+(@xy)z))
+     +w+@xyz
+
+  c. ((w@x)+(y+z))
+     (+(@wx)(+yz))
+     +@wx+yz
+
+  d.((w/(x@y))/z)
+    (/(/w(@xy))z)
+    //w@xyz
+
+4)
+  a. (w+(x@(y@z)))
+     (w(x(yz@)@)+)
+     wxyz@@+
+
+  b. (w+((x@y)+z))
+     (w((xy@)z+)+) 
+     wxy@z++
+
+  c. ((w@x)+(y+z))
+     ((wx@)(yz+)+)
+     wx@yz++
+
+  d. ((w/(x@y))/z)
+     ((w(xy@)/)z/)
+     wxy@/z/
+
+5)
+  a. 
+     ^(0[xX][0-9a-fA-F]*|0[0-7]*|[0-9]*)$
+     ^[\*]*\$?([1-9]{1}[0-9]{0,2}(\,[0-9]{3})*(\.[0-9]{0,2})?|[1-9]{1}[0-9]{0,}(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|(\.[0-9]{1,2})?)$
+     Found online at "http://www.regexlib.com/DisplayPatterns.aspx?cattabindex=2&categoryId=3"
+
+  b. ^\+1 [2-9][0-9]{2} - [2-9][0-9]{2} - [0-9]{4}|\+1 \([2-9][0-9]{2}\) [2-9][0-9]{2} - [0-9]{4}$
+
+6)In separate file 

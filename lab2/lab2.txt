@@ -80,4 +80,64 @@ Part 2
    number := digit { digit }
    digit := '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
- b. 
+ b. '*' has a higher precedence because it appears higher in the parse tree
+
+ c. 
+    1. 3+(5+7)
+    2. (3*5)*7
+
+ d.
+    expr
+    expr + term
+    expr + term + term
+    term + term + term
+    factor + term + term
+    number + term + term
+    digit + term + term
+    3 + term + term
+    3 + factor + term
+    3 + number + term
+    3 + digit + term
+    3 + 5 + term
+    3 + 5 + factor
+    3 + 5 + number
+    3 + 5 + digit
+    3 + 5 + 7
+
+    expr
+    term
+    term * factor
+    term * factor * factor
+    factor * factor * factor
+    number * factor * factor
+    digit * factor * factor
+    3 * factor * factor
+    3 * number * factor
+    3 * digit * factor
+    3 * 5 * factor
+    3 * 5 * number
+    3 * 5 * digit
+    3 * 5 * 7
+
+3)
+  a. command := expr '\n'
+     expr := avgr | expr '+' avgr
+     expr := avgr { '+' avgr }
+	 avgr := term | avgr '@' term
+     avgr := term { '@' term}
+     term := factor | term '*' factor
+     term := factor { '*' factor }
+     factor:= '(' expr ')' | number
+     number := digit | number digit
+     number := digit { digit }
+     digit := '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+
+  b.
+    1. 10+(20+30)
+    2. 10@(20*2)@6
+    2. (2@10)+(51@5)
+
+  c.
+    They are left-associative
+
+4) In separate file

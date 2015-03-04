@@ -14,6 +14,7 @@ char token; /* holds the current input character for the parse */
 /* declarations to allow arbitrary recursion */
 void command(void);
 int expr(void);
+int avgr(void);
 int term(void);
 int factor(void);
 int number(void);
@@ -43,13 +44,24 @@ void command(void)
 }
 
 int expr(void)
-/* expr -> term |expr '+' term */
-/* expr -> term { '+' term } */
+/* expr -> avgr | expr '+' avgr */
+/* expr -> avgr { '+' avgr } */
 
-{ int result = term();
+{ int result = avgr();
   while (token == '+')
   { match('+');
-    result += term();
+    result += avgr();
+  }
+  return result;
+}
+
+int avgr(void)
+/*avgr -> term | avgr '@' term */
+/*avgr -> term { '@' term }*/
+{ int result = term();
+  while (token == '@')
+  {match('@');
+   result += term();
   }
   return result;
 }
